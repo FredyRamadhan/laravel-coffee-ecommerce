@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('shipping_costs', function (Blueprint $table) {
             $table->id();
-            $table->string('provinsi');
+            $table->string('kota');
             $table->integer('cost');
             $table->timestamps();
         });

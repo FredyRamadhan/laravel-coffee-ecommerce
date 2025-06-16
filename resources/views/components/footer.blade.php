@@ -1,4 +1,4 @@
-<footer class="bg-gray-100 dark:bg-gray-900 text-white px-8 py-10 absolute bottom-0 right-0 left-0">
+<footer class="bg-gray-100 dark:bg-gray-900 text-white px-8 py-32 bottom-0 right-0 left-0 border-t-[1px] border-gray-500 mt-10">
     <div class="max-w-7xl mx-auto">
       <!-- Social -->
       <div class="mb-8">

@@ -5,5 +5,13 @@
         </h2>
     </x-slot>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="text-white mx-auto w-full max-w-md">asdfasdf</div>
+    <div class="w-full max-w-[1200px] mx-auto mt-6 px-6 py-4">
+        <div class="grid grid-cols-3 gap-2">
+
+            <x-product-card></x-product-card>
+            <x-product-card></x-product-card>
+            <x-product-card></x-product-card>
+        </div>
+    </div>
+    <x-footer></x-footer>
 </x-app-layout>

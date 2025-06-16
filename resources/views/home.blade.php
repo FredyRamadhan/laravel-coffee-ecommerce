@@ -6,15 +6,13 @@
     </x-slot>
     <x-slot:title>{{ $title }}</x-slot:title>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
+        <section class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
             <!-- Hero Section -->
             <section class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 md:p-12 text-gray-900 dark:text-gray-100 text-center">
                     <h1 class="text-4xl font-bold mb-4">Selamat Datang di <span class="text-indigo-600 dark:text-indigo-400">SpillDB</span>!</h1>
                     <p class="text-xl mb-6">Surga biji kopi pilihan dari seluruh Nusantara. Temukan cita rasa kopi terbaik untuk menemani harimu.</p>
-                    <a href="{{ route('products') }}" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">
-                        Lihat Katalog Kami
-                    </a>
+                    <x-main-button href="/products" >Lihat Katalog Kaim</x-main-button>
                 </div>
             </section>
 
@@ -46,8 +44,8 @@
                              {{-- Placeholder for an icon or image --}}
                             <svg class="w-16 h-16 mx-auto text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Aksesoris Kopi</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">Lengkapi pengalaman menyeduh kopi Anda dengan aksesoris berkualitas.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Excelso</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, optio nostrum rerum iusto tenetur odio dolorum nisi distinctio.</p>
                     </div>
                 </div>
             </section>
@@ -71,8 +69,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </section>
     </div>
+    <br>
     <x-footer></x-footer>
 </x-app-layout>

@@ -5,5 +5,5 @@
         </h2>
     </x-slot>
     <x-slot:title>{{ $title }}</x-slot:title>
-    <div class="text-white mx-auto w-full max-w-md">asdfasdf</div>
+    asdfasdfasdf
 </x-app-layout>

@@ -17,7 +17,7 @@ class CartItemController extends Controller
         $cart = CartItem::where("user_id", $user->id)->get();
         return view("cart", compact("cart"));
     }
-    public function store(Request $request)
+    public function store(Request $request, $slug)
     {
         if (auth()->check()) {
             $userID = auth()->id();

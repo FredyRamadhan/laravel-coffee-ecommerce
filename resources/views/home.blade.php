@@ -10,7 +10,7 @@
             <!-- Hero Section -->
             <section class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 md:p-12 text-gray-900 dark:text-gray-100 text-center">
-                    <h1 class="text-4xl font-bold mb-4">Selamat Datang di <span class="text-indigo-600 dark:text-indigo-400">SpillDB</span>!</h1>
+                    <h1 class="text-4xl font-bold mb-4">Selamat Datang di <span class="text-indigo-600 dark:text-indigo-400">SpillDaBeans</span>!</h1>
                     <p class="text-xl mb-6">Surga biji kopi pilihan dari seluruh Nusantara. Temukan cita rasa kopi terbaik untuk menemani harimu.</p>
                     <x-main-button href="/products" >Lihat Katalog Kaim</x-main-button>
                 </div>

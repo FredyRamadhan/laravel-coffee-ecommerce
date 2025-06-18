@@ -42,7 +42,7 @@ class OrderHistoryController extends Controller
         // Validate request
         $request->validate([
             'customer_address' => 'required|string|max:500',
-            'customer_phone' => 'required|string|max:20',
+            'customer_phone' => 'required|string|max:100',
         ]);
 
         // Get customer address and phone
@@ -50,7 +50,9 @@ class OrderHistoryController extends Controller
         $customerPhone = $request->customer_phone;
 
         // Generate unique order number
-        $orderNumber = 'ORD-' . date('Ymd') . '-' . strtoupper(Str::random(6));
+        do {
+            $orderNumber = 'ORD-' . date('Ymd') . '-' . strtoupper(Str::random(6));
+        } while (OrderHistory::where('order_number', $orderNumber)->exists());
 
         $total = 0;
         $shippingCost = $user->address ? $user->address->getShippingCost() : 15000;

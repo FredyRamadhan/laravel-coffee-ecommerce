@@ -12,6 +12,10 @@ Route::get('/', function () {
     return view('home', ['title'=>'Beranda']);
 })->name('home');
 
+Route::get('/dashboard', function () {
+    return view('dashboard', ['title'=> 'Dashboard']);
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -33,10 +37,7 @@ Route::get('/address', [AddressController::class, 'index'])->name('address.index
 Route::post('/address', [AddressController::class, 'store'])->name('address.store');
 Route::get('/api/shipping-cost', [AddressController::class, 'getShippingCost'])->name('api.shipping-cost');
 
-// Admin Routes
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
-});
+
 
 Route::view('/about', 'about', ['title'=>'Tentang Kami'])->name('about');
 Route::view('/docs', 'docs', ['title'=>'Dokumentasi'])->name('docs');

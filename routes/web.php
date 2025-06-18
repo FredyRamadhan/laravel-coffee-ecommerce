@@ -24,15 +24,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/products', [ProductController::class,'index'])->name('products');
 
-
-
-// Route::get('/products', [ProductController::class, 'index'])->name('products');
-// Route::get('/products/{slug}', [ProductController::class, 'product'])->name('product');
-// Route::post('/products/{slug}/addToCart', [CartItemController::class, 'store'])->name('addToCart');
-// Route::get('/cart', [CartItemController::class, 'index'])->name('cart');
-// Route::get('/cart/delete', [CartItemController::class, 'update'])->name('edit');
-// Route::post('/cart/delete', [CartItemController::class, 'update'])->name('deleteCart');
-// Route::get('/checkout', [OrderHistoryController::class, 'store'])->name('checkout');
+Route::get('/products/{slug}', [ProductController::class, 'product'])->name('product');
+Route::post('/products/{slug}/addToCart', [CartItemController::class, 'store'])->name('addToCart');
+Route::get('/cart', [CartItemController::class, 'index'])->name('cart');
+Route::get('/cart/delete', [CartItemController::class, 'update'])->name('edit');
+Route::post('/cart/delete', [CartItemController::class, 'update'])->name('deleteCart');
+Route::get('/checkout', [OrderHistoryController::class, 'store'])->name('checkout');
 
 Route::view('/cart', 'cart', ['title'=>'Keranjang'])->name('cart');
 Route::view('/about', 'about', ['title'=>'Tentang Kami'])->name('about');

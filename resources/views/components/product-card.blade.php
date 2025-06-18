@@ -1,3 +1,4 @@
+<a href="/products/{{ $slug }}"></a>
 <div class="max-w-sm mx-auto bg-white dark:bg-onyx border border-timber dark:border-myrtle rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
   <div class="h-48 bg-timber dark:bg-myrtle flex items-center justify-center">
     <span class="text-myrtle dark:text-timber text-sm">Image Placeholder</span>

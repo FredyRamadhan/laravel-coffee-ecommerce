@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderHistory extends Model
 {
-    // protected $table = "";
+    "user_id",
+    "product_id",
+    "count",
+    "subtotal",
+    "shipping"
 }

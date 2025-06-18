@@ -10,13 +10,19 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::latest()->paginate(10);
+        $products = Product::withCount('ratings')
+                          ->with('ratings')
+                          ->latest()
+                          ->paginate(10);
         return view("products", compact("products"));
     }
     
     public static function product($slug)
     {
-        $product = Product::where("slug", $slug)->first();
+        $product = Product::with('ratings')
+                         ->withCount('ratings')
+                         ->where("slug", $slug)
+                         ->first();
         return view("product", compact("product"));
     }
 

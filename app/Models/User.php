@@ -45,5 +45,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin ?? false;
+    }
 }
 

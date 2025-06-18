@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -35,8 +37,20 @@ Route::get('/products', [ProductController::class,'index'])->name('products');
 Route::get('/products/{slug}', [ProductController::class, 'product'])->name('product');
 Route::post('/products/{slug}/addToCart', [CartItemController::class, 'store'])->name('addToCart');
 Route::get('/cart', [CartItemController::class, 'index'])->name('cart');
-Route::get('/cart/delete', [CartItemController::class, 'update'])->name('edit');
-Route::post('/cart/delete', [CartItemController::class, 'update'])->name('deleteCart');
+Route::post('/cart/update', [CartItemController::class, 'update'])->name('cart.update');
+Route::get('/checkout', [CartItemController::class, 'checkout'])->name('checkout');
+Route::post('/checkout', [OrderHistoryController::class, 'checkout'])->name('checkout.process');
+Route::get('/invoice/{orderNumber}', [OrderHistoryController::class, 'invoice'])->name('invoice');
+Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('order.history');
+Route::post('/order-history/{orderHistoryId}/rate', [RatingController::class, 'store'])->name('rating.store');
+Route::get('/address', [AddressController::class, 'index'])->name('address.index');
+Route::post('/address', [AddressController::class, 'store'])->name('address.store');
+Route::get('/api/shipping-cost', [AddressController::class, 'getShippingCost'])->name('api.shipping-cost');
+
+// Admin Routes
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+});
 Route::get('/checkout', [OrderHistoryController::class, 'store'])->name('checkout');
 
 Route::view('/about', 'about', ['title'=>'Tentang Kami'])->name('about');

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -12,11 +13,20 @@ class Product extends Model
         "description",
         "stock",
         "price"
-    ] ;
+    ];
 
-    // $table->string('name');
-    // $table->string('slug');
-    // $table->text('description');
-    // $table->integer('stock')->default(0);
-    // $table->integer('price');
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return round($this->ratings()->avg('rating') ?: 0, 1);
+    }
+
+    public function getRatingCountAttribute()
+    {
+        return $this->ratings()->count();
+    }
 }

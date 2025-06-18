@@ -36,7 +36,7 @@ Route::post('/order-history/{orderHistoryId}/rate', [RatingController::class, 's
 Route::get('/address', [AddressController::class, 'index'])->name('address.index');
 Route::post('/address', [AddressController::class, 'store'])->name('address.store');
 Route::get('/api/shipping-cost', [AddressController::class, 'getShippingCost'])->name('api.shipping-cost');
-
+Route::get('/dashboard', [ProductController::class,'redirectDash'])->name('dashboard');
 
 
 Route::view('/about', 'about', ['title'=>'Tentang Kami'])->name('about');

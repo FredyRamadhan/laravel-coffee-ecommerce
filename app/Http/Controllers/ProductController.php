@@ -33,5 +33,8 @@ class ProductController extends Controller
         $test = $input;
         return view("test", compact("test"));
     }
+    public function redirectDash(){
+        return redirect(route("products"));
+    }
 }
 

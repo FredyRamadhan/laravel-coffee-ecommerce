@@ -4,7 +4,6 @@
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-2">
                     <x-application-logo class="block h-8 w-auto fill-current text-coffee-600 dark:text-coffee-400" />
-                    <span class="text-xl font-bold text-gray-900 dark:text-white">SpillDaBeans</span>
                 </a>
             </div>
 
@@ -12,25 +11,16 @@
                 <x-nav-link href="/" :active="request()->is('/')" class="text-gray-700 dark:text-gray-300 hover:text-coffee-600 dark:hover:text-coffee-400">
                     {{ __('Beranda') }}
                 </x-nav-link>
-                @auth
                 <x-nav-link href="/products" :active="request()->is('products')" class="text-gray-700 dark:text-gray-300 hover:text-coffee-600 dark:hover:text-coffee-400">
                     {{ __('Katalog') }}
                 </x-nav-link>
                 <x-nav-link href="/about" :active="request()->is('about')" class="text-gray-700 dark:text-gray-300 hover:text-coffee-600 dark:hover:text-coffee-400">
                     {{ __('Tentang kami') }}
                 </x-nav-link>
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-gray-700 dark:text-gray-300 hover:text-coffee-600 dark:hover:text-coffee-400">
-                    {{ __('Dashboard') }}
-                </x-nav-link>
                 <x-nav-link :href="route('order.history')" :active="request()->routeIs('order.history')" class="text-gray-700 dark:text-gray-300 hover:text-coffee-600 dark:hover:text-coffee-400">
                     {{ __('Riwayat Pesanan') }}
                 </x-nav-link>
-                @if(auth()->check() && auth()->user()->isAdmin())
-                    <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.*')" class="text-gray-700 dark:text-gray-300 hover:text-coffee-600 dark:hover:text-coffee-400">
-                        {{ __('Admin Panel') }}
-                    </x-nav-link>
-                @endif
-                @endauth
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:space-x-4">
@@ -100,15 +90,11 @@
             <x-responsive-nav-link href="/" :active="request()->is('/')">
                 {{ __('Beranda') }}
             </x-responsive-nav-link>
-            @auth
             <x-responsive-nav-link href="/products" :active="request()->is('products')">
                 {{ __('Katalog') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="/about" :active="request()->is('about')">
                 {{ __('Tentang kami') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('order.history')" :active="request()->routeIs('order.history')">
                 {{ __('Riwayat Pesanan') }}
@@ -116,12 +102,7 @@
             <x-responsive-nav-link :href="route('cart')" :active="request()->routeIs('cart')">
                 {{ __('Keranjang') }}
             </x-responsive-nav-link>
-            @if(auth()->check() && auth()->user()->isAdmin())
-                <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.*')">
-                    {{ __('Admin Panel') }}
-                </x-responsive-nav-link>
-            @endif
-            @endauth
+
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-700">

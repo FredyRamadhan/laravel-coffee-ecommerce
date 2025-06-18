@@ -24,20 +24,11 @@
 
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-2">
-          @php
-            $avgRating = isset($averageRating) ? (float)$averageRating : 0;
-            $ratingCnt = isset($ratingCount) ? (int)$ratingCount : 0;
-          @endphp
-          @if($ratingCnt > 0)
             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-              ⭐ {{ number_format($avgRating, 1) }}/5
+              ⭐ {{ $averageRating }}/5
             </span>
-            <span class="text-xs text-gray-500 dark:text-gray-400">({{ $ratingCnt }} ulasan)</span>
-          @else
-            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400">
-              Belum ada ulasan
-            </span>
-          @endif
+            <span class="text-xs text-gray-500 dark:text-gray-400">({{ $ratingCount }} ulasan)</span>
+
         </div>
       </div>
     </div>

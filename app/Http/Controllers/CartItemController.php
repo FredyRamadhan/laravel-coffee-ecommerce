@@ -196,4 +196,6 @@ class CartItemController extends Controller
         return view('checkout', compact('cartItems', 'subtotal', 'shipping', 'total', 'title'));
     }
 
+
+
 }

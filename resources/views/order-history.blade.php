@@ -122,17 +122,17 @@
                 
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Rating</label>
-                    <div class="flex items-center space-x-1">
+                    <div class="flex items-center space-x-2">
                         @for($i = 1; $i <= 5; $i++)
-                            <button type="button" onclick="setRating({{ $i }})" 
-                                    class="rating-star w-8 h-8 text-gray-300 hover:text-yellow-400 transition-colors">
-                                <svg class="w-full h-full fill-current" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
+                            <button type="button" onclick="setRating({{ $i }})"
+                                    class="rating-btn px-3 py-2 text-lg border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-yellow-100 dark:hover:bg-yellow-900 hover:border-yellow-400 transition-colors"
+                                    data-rating="{{ $i }}">
+                                {{ $i }}⭐
                             </button>
                         @endfor
                     </div>
                     <input type="hidden" id="ratingValue" name="rating" required>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Klik angka untuk memberikan rating</p>
                 </div>
                 
                 <div class="flex gap-3">
@@ -174,14 +174,15 @@
         }
 
         function updateStars() {
-            const stars = document.querySelectorAll('.rating-star');
-            stars.forEach((star, index) => {
-                if (index < currentRating) {
-                    star.classList.remove('text-gray-300');
-                    star.classList.add('text-yellow-400');
+            const buttons = document.querySelectorAll('.rating-btn');
+            buttons.forEach((button, index) => {
+                const rating = parseInt(button.dataset.rating);
+                if (rating <= currentRating) {
+                    button.classList.remove('border-gray-300', 'dark:border-gray-600');
+                    button.classList.add('bg-yellow-100', 'dark:bg-yellow-900', 'border-yellow-400', 'text-yellow-800', 'dark:text-yellow-200');
                 } else {
-                    star.classList.remove('text-yellow-400');
-                    star.classList.add('text-gray-300');
+                    button.classList.remove('bg-yellow-100', 'dark:bg-yellow-900', 'border-yellow-400', 'text-yellow-800', 'dark:text-yellow-200');
+                    button.classList.add('border-gray-300', 'dark:border-gray-600');
                 }
             });
         }

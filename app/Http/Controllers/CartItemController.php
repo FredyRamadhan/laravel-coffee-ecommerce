@@ -12,10 +12,10 @@ class CartItemController extends Controller
     {
         if (auth()->check()) {
             $user = auth()->user();
-        };
+            $cart = CartItem::where("user_id", $user->id)->get();
+            return view("cart", compact("cart"));
+        }else return redirect('/login');
     
-        $cart = CartItem::where("user_id", $user->id)->get();
-        return view("cart", compact("cart"));
     }
     public function store(Request $request, $slug)
     {

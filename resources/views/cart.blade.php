@@ -1,27 +1,21 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-onyx dark:text-timber leading-tight">
             {{ __($title) }}
         </h2>
     </x-slot>
     <x-slot:title>{{ $title }}</x-slot:title>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100 flex flex-col gap-8">
+            <div class="bg-white dark:bg-onyx overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-onyx dark:text-timber flex flex-col gap-8">
                     <h1 class="text-3xl">Keranjang {{ Auth::user()->name }}</h1>
-                    <div class="bg-gray-900 p-4 min-h-60 rounded-lg">
-                        asdf
+                    <div class="bg-eerie p-4 min-h-60 rounded-lg">
+                        {{-- Cart items will be listed here --}}
                     </div>
                     <div class="flex gap-3">
-                        <x-main-button href="/#" >Checkout</x-main-button>
-                        {{-- <x-main-button href="/profile">edit profil</x-main-button>
-                        <form action="/logout" method="POST">
-                            @csrf
-                            <x-primary-button>Keluar</x-primary-button>
-                        </form> --}}
+                        <x-main-button href="#" >Checkout</x-main-button>
                     </div>
-                    {{-- {{ __("You're logged in!") }} --}}
                 </div>
             </div>
         </div>

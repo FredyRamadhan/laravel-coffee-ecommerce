@@ -10,8 +10,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view("products", compact("products"));
+        if (auth()->check()) {
+            // $user = auth()->user();
+            $products = Product::latest()->paginate(10);
+            return view("products", compact("products"));
+        } else return redirect("/login");
     }
     
     public static function product($slug)
@@ -25,7 +28,7 @@ class ProductController extends Controller
     {
         $product = Product::create([
                     "name" => $request->name,
-                    "slug" => Str::of($request->name)->slug('-'),
+                    "slug" => Str::slug($request->name),
                     "description" => $request->description,
                     "stock" => $request->stock,
                     "price" => $request->price

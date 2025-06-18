@@ -22,9 +22,8 @@ Route::middleware('auth')->group(function () {
 
 
 
-Route::get('/products', function() {
-    return view('products', ['title'=>'Katalog']);
-})->name('products');
+Route::get('/products', [ProductController::class,'index'])->name('products');
+
 
 
 // Route::get('/products', [ProductController::class, 'index'])->name('products');

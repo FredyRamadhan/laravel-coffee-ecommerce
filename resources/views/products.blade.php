@@ -9,6 +9,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             @foreach ($products as $product)
             <x-product-card>
+                <x-slot:slug>{{ $product->slug }} </x-slot:slug>
                 <x-slot:name>{{ $product->name }}</x-slot:name>
                 <x-slot:description>{{ Str::limit($product->description, 50) }}</x-slot:description>
                 @if ($product->stock>=1)
